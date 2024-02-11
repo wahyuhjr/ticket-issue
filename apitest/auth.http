@@ -1,0 +1,19 @@
+### register
+POST http://localhost:3000/api/users/register
+
+{
+    "username": "wahyu",
+    "email": "wahyu@gmail.com",
+    "password": "wahyu123"
+}
+
+### login
+POST http://localhost:3000/api/users/login/
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+### get all users
+GET http://localhost:3000/api/users/
