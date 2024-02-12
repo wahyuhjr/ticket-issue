@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { sign } from "jsonwebtoken";
 import prisma from "@/utils/prisma";
+import toast from "react-hot-toast";
 
 export async function POST(req) {
   const { email, password } = await req.json();
@@ -25,6 +26,7 @@ export async function POST(req) {
     const isPasswordValid = await bcrypt.compare(password, findUser.password);
 
     if (!isPasswordValid) {
+      // toast.error('Email or password is incorrect!')
       return NextResponse.json(
         { message: "invalid credentials" },
         { status: 404 }

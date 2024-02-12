@@ -1,6 +1,6 @@
 "use client";
+import { Input } from "@nextui-org/react";
 import React from "react";
-import { Input } from "../ui/input";
 
 export default function Register() {
   async function handleSubmitRegister(e) {
