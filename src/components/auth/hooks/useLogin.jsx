@@ -26,8 +26,7 @@ export const useLogin = () => {
     else if (name === "password") setPassword(value);
   };
 
-  const handleSubmit = async (e) => {
-    // e.preventDefault();
+  const handleSubmit = async () => {
     setLoading(true);
     try {
       const res = await fetch(`${API_URL}/users/login`, {

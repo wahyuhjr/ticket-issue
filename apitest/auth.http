@@ -2,8 +2,8 @@
 POST http://localhost:3000/api/users/register
 
 {
-    "username": "wahyu",
-    "email": "wahyu@gmail.com",
+    "username": "ancok1",
+    "email": "ancok1@gmail.com",
     "password": "wahyu123"
 }
 
@@ -17,3 +17,13 @@ POST http://localhost:3000/api/users/login/
 
 ### get all users
 GET http://localhost:3000/api/users/
+
+### create ticket
+POST http://localhost:3000/api/tickets/
+
+{
+    "title": "ticket 1",
+    "description": "description 1",
+    "status": "open",
+    "userId": "55a63ab7-14ef-49ec-bd45-d99145ae2c53"
+}

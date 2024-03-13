@@ -3,7 +3,7 @@
 import React from "react";
 import { useLogin } from "./hooks/useLogin";
 import { Toaster } from "react-hot-toast";
-import { Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 
 export default function Login() {
   const {
@@ -39,7 +39,7 @@ export default function Login() {
             />
           </div>
           <div className="mx-auto">
-            <button
+            <Button
               type="button"
               onClick={handleLoginClick}
               className={`bg-primary text-white py-3 w-full rounded-lg ${
@@ -48,7 +48,7 @@ export default function Login() {
               disabled={loading}
             >
               {loading ? "Loading..." : "Login"}
-            </button>
+            </Button>
           </div>
         </form>
         <Toaster position="top-center" reverseOrder={false} />

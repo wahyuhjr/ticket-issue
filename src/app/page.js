@@ -1,9 +1,9 @@
-import Register from "@/components/auth/Register";
+import Home from "@/components/home/home";
 
-export default function Home() {
+export default function Page() {
   return (
    <div>
-      <Register />
+      <Home/>
    </div>
   );
 }

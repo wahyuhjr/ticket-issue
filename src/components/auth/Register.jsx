@@ -1,30 +1,44 @@
 "use client";
-import { Input } from "@nextui-org/react";
-import React from "react";
+
+import { Button, Input } from "@nextui-org/react";
+import { useRegister } from "./hooks/useRegister";
+import { Toaster } from "react-hot-toast";
 
 export default function Register() {
-  async function handleSubmitRegister(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const response = await fetch("/api/users/register", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await response.json();
-    console.log(data);
-  }
+  const { loading, handleChange, handleSubmitRegister } = useRegister();
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="w-[360px] bg-white shadow-md rounded px-8 py-6 space-y-4">
         <h2 className="text-center font-bold text-xl">Welcome Admin</h2>
-        <form onSubmit={handleSubmitRegister} className="space-y-4">
-          <Input name="username" type="text" placeholder="Username" />
-          <Input name="email" type="email" placeholder="Email" />
-          <Input name="password" type="password" placeholder="Password" />
-          <button className="bg-blue-600 rounded-lg text-white py-3 w-full">
+        <form className="space-y-4">
+          <Input
+            onChange={handleChange}
+            name="username"
+            type="text"
+            placeholder="Username"
+          />
+          <Input
+            onChange={handleChange}
+            name="email"
+            type="email"
+            placeholder="Email"
+          />
+          <Input
+            onChange={handleChange}
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+          <Button
+            isDisabled={loading}
+            onClick={handleSubmitRegister}
+            className="bg-blue-600 rounded-lg text-white py-3 w-full"
+          >
             Register
-          </button>
+          </Button>
         </form>
+        <Toaster position="top-center" reverseOrder={false} />
       </div>
     </div>
   );
