@@ -2,7 +2,11 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { sign } from "jsonwebtoken";
 import prisma from "@/utils/prisma";
-import toast from "react-hot-toast";
+
+export async function GET(req){
+  const requestHeaders = new Headers(req.headers);
+  console.log(requestHeaders);
+}
 
 export async function POST(req) {
   const { email, password } = await req.json();
