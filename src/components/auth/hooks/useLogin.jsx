@@ -41,7 +41,8 @@ export const useLogin = () => {
         throw new Error("Something went wrong");
       }
 
-      // const data = await res.json();
+      const data = await res.json();
+      localStorage.setItem("token", data.token);
       router.push("/dashboard");
       toast.success("Login success");
 

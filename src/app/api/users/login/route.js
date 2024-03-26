@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import { sign } from "jsonwebtoken";
 import prisma from "@/utils/prisma";
 
-export async function GET(req){
+export async function GET(req) {
   const requestHeaders = new Headers(req.headers);
   console.log(requestHeaders);
 }
@@ -50,7 +50,7 @@ export async function POST(req) {
     });
 
     const res = NextResponse.json(
-      { data: payload, message: "Login Success" },
+      { data: payload, token: token, message: "Login Success" },
       { status: 200, token }
     );
     res.cookies.set("token", token);
@@ -61,4 +61,3 @@ export async function POST(req) {
     return NextResponse.json("Something went wrong", { status: 500 });
   }
 }
-

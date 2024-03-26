@@ -1,29 +1,29 @@
 import prisma from "@/utils/prisma";
+import { jwtVerify } from "jose";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  // Get data from request body
-  const { title, description, userId } = await req.json();
-
+  console.log(process.env.JWT_SECRET)
+  const { title, description } = await req.json();
+  const authorization = req.headers.get("authorization");
+  const token = authorization.split(" ")[1];
+  const data = await jwtVerify(token, new TextEncoder().encode(process.env.JWT_SECRET)); 
   try {
-    // Create ticket
     const createTicket = await prisma.ticket.create({
       data: {
         title,
         description,
-        userId,
+        userId: data.payload.id,
       },
     });
 
-    // Return success response
     return NextResponse.json({
       data: createTicket,
       message: "Ticket created successfully",
       status: 200,
     });
   } catch (error) {
-    // Handle errors
-    console.log(error); // Log the error for debugging
+    console.log(error); 
     return NextResponse.error(
       "Something went wrong while creating the ticket. Please try again later",
       500
