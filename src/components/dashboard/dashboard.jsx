@@ -55,10 +55,18 @@ export default function Dashboard() {
                   <p className="text-lg font-bold">{ticket.title}</p>
                   <div className="flex flex-row gap-2">
                     <Tooltip content="Delete" color="danger">
-                      <Trash2 size={20} className="text-pink-500" />
+                      <button>
+                        <Trash2 size={20} className="text-pink-500" />
+                      </button>
                     </Tooltip>
-                    <Tooltip onClick={handleSubmit} content="Edit" color="success">
-                      <SquarePen size={20} className="text-green-400"/>
+                    <Tooltip
+                      onClick={handleSubmit}
+                      content="Edit"
+                      color="success"
+                    >
+                      <button>
+                        <SquarePen size={20} className="text-green-400" />
+                      </button>
                     </Tooltip>
                   </div>
                 </CardHeader>

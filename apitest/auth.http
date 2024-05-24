@@ -26,3 +26,6 @@ POST http://localhost:3000/api/tickets/
     "description": "description 1",
     "userId": "2860579e-e315-42b5-a6ad-3fd4b16bae9d"
 }
+
+### DELETE ticket
+DELETE http://localhost:3000/api/tickets/cluz95k5m00003y77nedqd4a7
